@@ -25,5 +25,6 @@ Route::middleware([
     route::get('/add_book',[AdminController::class,'add_book']);
     route::get('/show_books',[AdminController::class,'show_books']);
     route::post('/store_book',[AdminController::class,'store_book']);
+    route::get('/book_delete/{id}',[AdminController::class,'book_delete']);
 });
 

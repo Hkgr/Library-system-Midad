@@ -100,6 +100,9 @@ public function show_books(){
     $book = book::all();
     return view('manager.show_books',compact('book'));
 }
- 
-
+public function book_delete($id){
+ $data = book::find($id);
+ $data->delete();
+ return redirect()->back()->with('message','Book Deleted');
+}
 }

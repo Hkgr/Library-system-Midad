@@ -43,6 +43,7 @@
                 <th>Category</th>
                 <th>Auther Image</th>
                 <th>Book Image </th>
+                <th>Delete</th>
             </tr>
              @foreach ($book as $book)
             <tr>
@@ -57,8 +58,10 @@
                 <td>
                 <img class="img" src="book/{{$book->book_img}}">
                 </td>
-    </tr>
-    @endforeach
+                
+              <td><a href="{{url('book_delete',$book->id)}}" class="btn btn-danger">Delete</a> </td>
+              @endforeach
+              </tr>
             </table>
 
         </div>
