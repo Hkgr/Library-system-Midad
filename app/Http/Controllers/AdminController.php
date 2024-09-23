@@ -68,6 +68,7 @@ class AdminController extends Controller
     }
     public function store_book(Request $request){
         $data =new book;
+        $data -> title = $request -> book_name;
         $data -> auther_name = $request -> auther_name;
         $data -> quantity = $request -> quantity;
         $data -> desc = $request -> description;
@@ -94,6 +95,11 @@ class AdminController extends Controller
         return redirect()->back();
 
          }
+
+public function show_books(){
+    $book = book::all();
+    return view('manager.show_books',compact('book'));
+}
  
 
 }
