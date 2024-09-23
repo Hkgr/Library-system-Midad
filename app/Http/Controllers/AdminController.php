@@ -105,4 +105,41 @@ public function book_delete($id){
  $data->delete();
  return redirect()->back()->with('message','Book Deleted');
 }
+public function edit_book($id){
+
+    $data =book::find($id);
+    $category = category::all();
+    return view('manager.edit_book',compact('data','category'));
+   }
+
+   public function update_book(Request $request,$id){
+    $data = book::find($id);
+
+    $data -> title = $request -> book_name;
+    $data -> auther_name = $request -> auther_name;
+    $data -> quantity = $request -> quantity;
+    $data -> desc = $request -> description;
+    $data -> category_id = $request -> category;
+    $book_image = $request -> book_img;
+
+    if($book_image){
+        $book_image_name = time().'.'.$book_image->getClientOriginalExtension();
+        $request ->book_img ->move('book', $book_image_name);
+        $data->book_img=$book_image_name;
+    }
+
+    $auther_image = $request -> auther_img;
+
+    if($auther_image){
+        $auther_image_name = time().'.'.$auther_image->getClientOriginalExtension();
+        $request ->auther_img ->move('auther', $auther_image_name);
+        $data->auther_img=$auther_image_name;
+    }
+
+
+    $data -> save();
+    return redirect()->back();
+
+
+   }
 }

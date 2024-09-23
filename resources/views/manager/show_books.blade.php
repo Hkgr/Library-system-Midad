@@ -44,6 +44,7 @@
                 <th>Auther Image</th>
                 <th>Book Image </th>
                 <th>Delete</th>
+                <th>Update</th>
             </tr>
              @foreach ($book as $book)
             <tr>
@@ -60,6 +61,7 @@
                 </td>
                 
               <td><a href="{{url('book_delete',$book->id)}}" class="btn btn-danger">Delete</a> </td>
+              <td><a href="{{url('edit_book',$book->id)}}" class="btn btn-info">Update</a> </td>
               @endforeach
               </tr>
             </table>
