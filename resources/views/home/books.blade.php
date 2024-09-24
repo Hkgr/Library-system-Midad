@@ -7,6 +7,9 @@
             <h2><em>Items</em> Currently In The Market.</h2>
           </div>
         </div>
+
+
+
         <div class="col-lg-6">
           <div class="filters">
             <ul>
@@ -41,7 +44,11 @@
                     Total<br><strong>20</strong><br>
                   </span>
                   <div class="text-button">
-                    <a href="details.html">View Item Details</a>
+                    <a href="{{url('book_details',$data->id)}}">View Item Details</a>
+                    </div>
+                    <br>
+                    <div class="">
+                    <a class="btn btn-info" href="{{url('borrow_books',$data->id)}}">Read </a>
                   </div>
                 </div>
               </div>

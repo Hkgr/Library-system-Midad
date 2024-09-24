@@ -16,10 +16,9 @@
                   <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
                     <li><a href="{{url('add_book')}}">ADD</a></li>
                     <li><a href="{{url('show_books')}}">Show Books</a></li>
-                    <li><a href="#">Page</a></li>
                   </ul>
                 </li>
-                <li><a href="login.html"> <i class="icon-logout"></i>Login page </a></li>
+                <li><a href="{{url('borrow_request')}}"> <i class="icon-logout"></i>Requests </a></li>
         </ul><span class="heading">Extras</span>
         <ul class="list-unstyled">
           <li> <a href="#"> <i class="icon-settings"></i>Demo </a></li>
