@@ -8,6 +8,8 @@ use App\Models\book;
 
 use App\Models\Borrow;
 
+use App\Models\Category;
+
 use Illuminate\Support\Facades\Auth;
 
 use App\Models\user;
@@ -50,14 +52,23 @@ class HomeController extends Controller
     public function explore()
     {
         $data = book::all();
-        return view('home.explore', compact('data'));
+        $category = Category::all();
+        return view('home.explore', compact('data', 'category'));
     }
     public function search(Request $re)
     {
+        $category = Category::all();
         $se = $re->search;
-        $data = book::where('title','like','%'.$se.'%')->orWhere('auther_name','like','%'.$se.'%')->get();
-        return view('home.explore', compact('data'));
-
-        
+        $data = book::where('title', 'like', '%' . $se . '%')->orWhere('auther_name', 'like', '%' . $se . '%')->get();
+        return view('home.explore', compact('data', 'category'));
     }
+
+    public function cat_search($id){
+        $category = Category::all();
+
+        $data = book::where('category_id',$id)->get();
+        return view('home.explore', compact('data', 'category'));
+
+    }
+
 }

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-
+  <base href="/public">
   @include('home.css')
 </head>
 
@@ -17,21 +17,18 @@
     <div class="container">
       <div class="row">
 
-        <div class="col-lg-6">
-          <div class="section-heading">
-            <div class="line-dec"></div>
-            <h2><em>Items</em> Currently In The Market.</h2>
-          </div>
-        </div>
 
 
 
-        <div class="col-lg-6">
+
+        <div class="col-lg-6" style="margin-top: 100px;">
           <div class="filters">
             <ul>
               <li data-filter="*" class="active">All Books</li>
-              <li data-filter=".msc">Popular</li>
-              <li data-filter=".dig">Latest</li>
+
+              @foreach($category as $category)
+              <li><a href="{{url('cat_search',$category->id)}}">{{$category->cat_title}}</li>
+              @endforeach
             </ul>
           </div>
         </div>
@@ -40,7 +37,7 @@
         <div class="col-lg-12">
 
           <form action="{{url('search')}}" method="get">
- @csrf
+            @csrf
             <div class="row" style="margin: 30px;">
               <div class="col-md-8">
                 <input class="form-control" type="search" name="search">

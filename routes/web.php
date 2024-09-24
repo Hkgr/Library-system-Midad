@@ -35,4 +35,6 @@ Route::middleware([
     route::get('/deny_borrow/{id}', [AdminController::class, 'deny_borrow']);
     route::get('/explore', [HomeController::class, 'explore']);
     route::get('/search', [HomeController::class, 'search']);
+    route::get('/cat_search/{id}', [HomeController::class, 'cat_search']);
+
 });
