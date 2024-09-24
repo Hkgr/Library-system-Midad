@@ -1,10 +1,10 @@
 <nav id="sidebar">
         <!-- Sidebar Header-->
         <div class="sidebar-header d-flex align-items-center">
-          <div class="avatar"><img src="manager/img/avatar-6.jpg" alt="..." class="img-fluid rounded-circle"></div>
+          <div class="avatar"><img src="manager/img/mockup6.jpg" alt="..." class="img-fluid rounded-circle"></div>
           <div class="title">
-            <h1 class="h5">Mark Stephen</h1>
-            <p>Web Designer</p>
+            <h1 class="h5">Rashad Alshiekh</h1>
+            <p>Library Admin</p>
           </div>
         </div>
         <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
@@ -14,15 +14,9 @@
 
                 <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Books </a>
                   <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
-                    <li><a href="{{url('add_book')}}">ADD</a></li>
-                    <li><a href="{{url('show_books')}}">Show Books</a></li>
+                  <li><a href="{{url('show_books')}}">Show All Books</a></li>  
+                  <li><a href="{{url('add_book')}}">Add Book</a></li>
                   </ul>
                 </li>
                 <li><a href="{{url('borrow_request')}}"> <i class="icon-logout"></i>Requests </a></li>
-        </ul><span class="heading">Extras</span>
-        <ul class="list-unstyled">
-          <li> <a href="#"> <i class="icon-settings"></i>Demo </a></li>
-          <li> <a href="#"> <i class="icon-writing-whiteboard"></i>Demo </a></li>
-          <li> <a href="#"> <i class="icon-chart"></i>Demo </a></li>
-        </ul>
       </nav>

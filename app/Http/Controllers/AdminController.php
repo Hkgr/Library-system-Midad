@@ -19,16 +19,20 @@ class AdminController extends Controller
     public function index(){
          
         if (Auth::id()){
-            $user_type = Auth()->user()->usertype;
+            $user_type = Auth()->User()->usertype;
         }
 
         if($user_type == 'manager'){
-            return view('manager.index');
+            $user = User::all()->count();
+            $book = book::all()->count();
+            $borrow = Borrow::all()->count();
+            $approve = Borrow::where('status','approved')->count();
+            return view('manager.index',compact('user','book','approve','borrow'));
         }
         else if($user_type == 'user'){
             $data = book::all();
 
-            return view ('home.index',compact());
+            return view ('home.index',compact('data'));
         }
 
         else {
