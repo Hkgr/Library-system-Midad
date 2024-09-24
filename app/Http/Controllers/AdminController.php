@@ -151,4 +151,28 @@ public function edit_book($id){
     $data = Borrow::all();
     return view('manager.borrow_request',compact('data'));
 }
+public function accept_borrow($id){
+    $data = borrow::find($id);
+    $status = $data->status;
+    if($status == 'approved'){
+        return redirect()->back();
+    }
+    else{
+        $data->status = 'approved';
+        $bookid = $data->book_id;
+        $book = book::find($bookid);
+        $book_q = $book->quantity - '1';
+        $book->quantity = $book_q;
+        $data->save();
+        $book->save();
+        return redirect()->back();
+    }
+
+}
+public function deny_borrow($id){
+    $data = borrow::find($id);
+    $data->status = "reject";
+    $data->save();
+    return redirect()->back();
+}
 }

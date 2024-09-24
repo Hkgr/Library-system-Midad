@@ -29,8 +29,11 @@ Route::middleware([
     route::get('/edit_book/{id}',[AdminController::class,'edit_book']);
     route::post('/update_book/{id}',[AdminController::class,'update_book']);
     route::get('/book_details/{id}',[HomeController::class,'book_details']);
-    route::get('/borrow_books/{id}',[HomeController::class,'borrow_books']);
+    route::match(['get', 'post'], '/borrow_books/{id}', [HomeController::class, 'borrow_books']);
     route::get('/borrow_request',[AdminController::class,'borrow_request']);
+    route::get('/accept_borrow/{id}',[AdminController::class,'accept_borrow']);
+    route::get('/deny_borrow/{id}',[AdminController::class,'deny_borrow']);
+
 
 
 });

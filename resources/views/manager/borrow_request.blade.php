@@ -47,8 +47,13 @@ font-weight: bold;
                 <th>Phone</th>
                 <th>Book Title</th>
                 <th>Quantity</th>
+                <th>Start Date</th>
+                <th>End Date</th>
                 <th>Status</th>
                 <th>Book Image</th>
+                <th>deny</th>
+                <th>accept</th>
+
             </tr>
              @foreach ($data as $data)
             <tr>
@@ -57,15 +62,15 @@ font-weight: bold;
                 <td>{{$data->user->phone}}</td>
                 <td>{{$data->book->title}}</td>
                 <td>{{$data->book->quantity}}</td>
+                <td>{{$data->start_date}}</td>
+                <td>{{$data->end_date}}</td>
                 <td>{{$data->status}}</td>
-                <td>
-                    <img class="img" src="auther/{{$data->  book->auther_img}}">
-                </td>
                 <td>
                 <img class="img" src="book/{{$data->book->book_img}}">
                 </td>
                 
-              <td><a href="{{url('book_delete',$data->book->id)}}" class="btn btn-danger">Delete</a> </td>
+              <td><a href="{{url('accept_borrow',$data->id)}}" class="btn btn-info">Aprrov</a> </td>
+              <td><a href="{{url('deny_borrow',$data->id)}}" class="btn btn-info">Reject</a> </td>
               @endforeach
               </tr>
             </table>

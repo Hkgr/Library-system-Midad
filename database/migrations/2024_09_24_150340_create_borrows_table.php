@@ -16,8 +16,11 @@ return new class extends Migration
             $table->foreignId('book_id')->constrained()->onDelete('cascade');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('status')->default('un allow');
+            $table->date('start_date');  // يجب أن يكون لديك هذا العمود
+            $table->date('end_date');    // يجب أن يكون لديك هذا العمود
             $table->timestamps();
         });
+        
     }
 
     /**
