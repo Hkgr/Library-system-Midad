@@ -10,6 +10,8 @@ use App\Models\book;
 
 use App\Models\Category;
 
+use App\Models\Borrow;
+
 use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
@@ -26,7 +28,7 @@ class AdminController extends Controller
         else if($user_type == 'user'){
             $data = book::all();
 
-            return view ('home.index',compact('data'));
+            return view ('home.index',compact());
         }
 
         else {
@@ -144,4 +146,9 @@ public function edit_book($id){
 
 
    }
+
+   public function borrow_request(){
+    $data = Borrow::all();
+    return view('manager.borrow_request',compact('data'));
+}
 }
