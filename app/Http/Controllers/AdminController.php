@@ -24,7 +24,9 @@ class AdminController extends Controller
             return view('manager.index');
         }
         else if($user_type == 'user'){
-            return view ('home.index');
+            $data = book::all();
+
+            return view ('home.index',compact('data'));
         }
 
         else {

@@ -10,5 +10,6 @@
       @include('manager.sidebar')
       <!-- Sidebar Navigation end-->
       @include('manager.body')
+      
       @include('manager.footer')
 </html>
