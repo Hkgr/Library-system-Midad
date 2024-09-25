@@ -4,16 +4,14 @@
         <div class="col-lg-6">
           <div class="section-heading">
             <div class="line-dec"></div>
-            <h2><em>Items</em> Currently In The Market.</h2>
+            <h2><em>Books</em> That We Have For You.</h2>
           </div>
         </div>
 
         <div class="col-lg-6">
           <div class="filters">
             <ul>
-              <li data-filter="*"  class="active">All Books</li>
-              <li data-filter=".msc">Popular</li>
-              <li data-filter=".dig">Latest</li>
+              <li data-filter=".msc" class="active">All Books</li>
             </ul>
           </div>
         </div>
@@ -35,14 +33,12 @@
                   </span>
                   <div class="line-dec"></div>
                   <span class="bid">
-                    Current Available<br><strong>{{$data->quentity}}</strong><br> 
+                    Current Available<br><strong>{{$data->quantity}}</strong><br> 
                   </span>
-                  <span class="ends">
-                    Total<br><strong>20</strong><br>
+                  <div class="line-dec"></div>
+                  <span class="bid">
+                  Description<br><strong>{{$data->desc}}</strong><br> 
                   </span>
-                  <div class="text-button">
-                    <a href="{{url('book_details',$data->id)}}">View Item Details</a>
-                  </div>
                   <br>
                   <div class="">
                     <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#borrowModal{{$data->id}}">

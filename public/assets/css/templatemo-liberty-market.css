@@ -371,7 +371,7 @@ Header Style
   min-height: 80px;
   background: transparent;
   display: flex;
-  background-color: black;
+  background-color: #042354;
   padding: 15px 30px;
   border-radius: 50px;
 }
@@ -578,7 +578,7 @@ Header Style
 
 .header-area.header-sticky {
   min-height: 70px;
-  background-color: black!important;
+  background-color: #042354!important;
 }
 
 .header-area.header-sticky .nav li a.active {
