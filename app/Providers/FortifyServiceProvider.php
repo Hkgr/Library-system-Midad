@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use Laravel\Fortify\Fortify;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Cookie;
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -42,6 +44,11 @@ class FortifyServiceProvider extends ServiceProvider
         RateLimiter::for('two-factor', function (Request $request) {
             return Limit::perMinute(5)->by($request->session()->get('login.id'));
         });
+        if (session()->has('locale')) {
+            App::setLocale(session('locale'));
+        } else {
+            App::setLocale(config('app.fallback_locale'));
+        }
     }
 }
 

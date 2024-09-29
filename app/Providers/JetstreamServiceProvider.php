@@ -6,6 +6,8 @@ use App\Actions\Jetstream\DeleteUser;
 use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Jetstream\Jetstream;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Cookie;
 
 class JetstreamServiceProvider extends ServiceProvider
 {
@@ -22,6 +24,11 @@ class JetstreamServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        if (session()->has('locale')) {
+            App::setLocale(session('locale'));
+        } else {
+            App::setLocale(config('app.fallback_locale'));
+        }
         $this->configurePermissions();
 
         Jetstream::deleteUsersUsing(DeleteUser::class);

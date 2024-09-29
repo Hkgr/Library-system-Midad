@@ -1,11 +1,34 @@
 <?php
 
-
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Cookie;
+
+Route::get('lang/{locale}', function ($locale) {
+    $supportedLocales = ['en', 'ar'];
+
+    if (in_array($locale, $supportedLocales)) {
+        config(['app.fallback_locale' => $locale]);
+        Log::info('Fallback Locale changed to: ' . config('app.fallback_locale'));
+    } else {
+        Log::warning('Unsupported locale: ' . $locale);
+    }
+
+    return redirect()->back();
+});
+
+
 
 route::get('/', [HomeController::class, 'index']);
+
+
+
+
+
 
 Route::middleware([
     'auth:sanctum',
@@ -38,3 +61,4 @@ Route::middleware([
     route::get('/cat_search/{id}', [HomeController::class, 'cat_search']);
 
 });
+

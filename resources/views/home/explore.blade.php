@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
 <base href="/public">
@@ -22,7 +22,6 @@
           </div>
         </div>
 
-        <!-- قسم الفلاتر -->
         <div class="col-lg-6">
           <div class="filters">
             <ul>

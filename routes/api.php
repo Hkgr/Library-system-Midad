@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\AdminController;
@@ -11,6 +12,18 @@ use App\Http\Controllers\HomeController;
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
+
+Route::get('lang/{locale}', function ($locale) {
+    // تأكد من وجود قيم المدخلات
+
+
+
+        Session::put('locale', $locale);
+
+
+    return redirect()->back();
+});
+
 
 route::get('/home', [AdminController::class, 'index']);
 route::get('/category_page', [AdminController::class, 'category_page']);
