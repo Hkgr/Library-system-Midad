@@ -8,12 +8,21 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Cookie;
 
+
+
 Route::get('lang/{locale}', function ($locale) {
     $supportedLocales = ['en', 'ar'];
 
     if (in_array($locale, $supportedLocales)) {
+        Cookie::queue('locale', $locale, 60 * 24 * 365); // تعيين الكوكي بدون تشفير
+
+        app()->setLocale($locale);
         config(['app.fallback_locale' => $locale]);
+
+        Log::info('Locale changed to: ' . $locale);
         Log::info('Fallback Locale changed to: ' . config('app.fallback_locale'));
+
+        return redirect()->back();
     } else {
         Log::warning('Unsupported locale: ' . $locale);
     }

@@ -38,19 +38,20 @@
                         <li><a href="{{ route('register') }}">{{ __('header.re') }}</a></li>
                         @endif
                         @endauth
+                        <a class="language-switch" href="{{ url('lang/en') }}">English</a> |
+                        <a class="language-switch" href="{{ url('lang/ar') }}">العربية</a>
+                        </li>
+
                 </nav>
                 @endif
                 <li>
-    <a class="language-switch" href="{{ url('lang/en') }}">English</a> |
-    <a class="language-switch" href="{{ url('lang/ar') }}">العربية</a>
-</li>
 
 
 
-                </ul>
+                    </ul>
 
-                <!-- ***** Menu End ***** -->
-                </nav>
+                    <!-- ***** Menu End ***** -->
+                    </nav>
             </div>
         </div>
     </div>

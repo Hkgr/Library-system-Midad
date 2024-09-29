@@ -11,14 +11,17 @@ class AppServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        Log::info('Current App Locale: ' . config('app.locale'));
-
-        if (session()->has('locale')) {
-            config(['app.fallback_locale' => session('locale')]);
-            Log::info('Fallback Locale set: ' . config('app.fallback_locale'));
-        } else {
-            config(['app.fallback_locale' => config('app.fallback_locale')]);
-            Log::info('Using default Fallback Locale: ' . config('app.fallback_locale'));
-        }
+        $locale = request()->cookie('locale', config('app.locale'));
+    
+        app()->setLocale($locale);
+    
+        config(['app.fallback_locale' => $locale]);
+    
+        // تسجيل قيمة الكوكي
+        Log::info('Locale from cookie: ' . $locale);
     }
+    
+    
+    
+    
 }

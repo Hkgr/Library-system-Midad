@@ -24,11 +24,7 @@ class JetstreamServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        if (session()->has('locale')) {
-            App::setLocale(session('locale'));
-        } else {
-            App::setLocale(config('app.fallback_locale'));
-        }
+     
         $this->configurePermissions();
 
         Jetstream::deleteUsersUsing(DeleteUser::class);

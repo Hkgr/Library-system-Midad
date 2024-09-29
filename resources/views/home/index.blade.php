@@ -7,11 +7,11 @@
 
 <body>
 <div>
-      Current Locale: {{ session('locale') }}
+   <!--   Current Locale: {{ session('locale') }}
       Current Locale: {{ session('locale') }}
       {{ __('translate.welcome') }}
     Current Session Locale: {{ session('locale') }}
-    Current App Locale: {{ app()->getLocale() }}
+    Current App Locale: {{ app()->getLocale() }}-->
 
 
 </div>

@@ -44,11 +44,7 @@ class FortifyServiceProvider extends ServiceProvider
         RateLimiter::for('two-factor', function (Request $request) {
             return Limit::perMinute(5)->by($request->session()->get('login.id'));
         });
-        if (session()->has('locale')) {
-            App::setLocale(session('locale'));
-        } else {
-            App::setLocale(config('app.fallback_locale'));
-        }
+     
     }
 }
 
