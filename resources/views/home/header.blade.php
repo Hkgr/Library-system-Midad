@@ -17,7 +17,7 @@
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">
+                    <a href="{{url('/')}}" class="logo">
                         <img src="assets/images/logo2.png" alt="">
                     </a>
                     <!-- ***** Logo End ***** -->
