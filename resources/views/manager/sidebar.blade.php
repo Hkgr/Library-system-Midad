@@ -4,12 +4,12 @@
           <div class="avatar"><img src="manager/img/mockup6.jpg" alt="..." class="img-fluid rounded-circle"></div>
           <div class="title">
             <h1 class="h5">Rashad Alshiekh</h1>
-            <p>Library Admin</p>
+            <p>Library Manager</p>
           </div>
         </div>
         <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
         <ul class="list-unstyled">
-                <li class="active"><a href="index.html"> <i class="icon-home"></i>Home</a></li>
+                <li class="active"><a href="{{url('home')}}"> <i class="icon-home"></i>Home</a></li>
                 <li><a href="{{url('category_page')}}"> <i class="icon-grid"></i>Categories</a></li>
 
                 <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Books </a>
